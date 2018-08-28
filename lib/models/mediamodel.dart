@@ -1,0 +1,3 @@
+class MediaModel{
+  String overview;
+}
