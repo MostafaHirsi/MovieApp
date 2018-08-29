@@ -11,7 +11,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  String selectedMediaType = "TV";
+  String selectedMediaType = "Movie";
   List<DropdownMenuItem<String>> mediaTypes = new List<DropdownMenuItem<String>>();
   List<MediaModel> mediaModels = new List<MediaModel>();
   void OnChanged(String selectedValue)
