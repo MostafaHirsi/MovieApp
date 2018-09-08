@@ -25,6 +25,15 @@ class _SearchPageState extends State<SearchPage> {
   {
     setState(() {
       selectedMediaType = selectedValue;
+      switch (selectedMediaType) {
+        case MediaType.movie:
+          selectedMediaTypeString = "movie";
+          break;
+        case MediaType.movie:
+          selectedMediaTypeString = "tv show";
+          break;
+        default:
+      }
     });
   }
 
@@ -48,7 +57,7 @@ class _SearchPageState extends State<SearchPage> {
       selectedMediaType, 1);      
     setState(() {
       mediaModels = mediaMods;
-      selectedMediaTypeString = selectedMediaType.toString().substring(selectedMediaType.toString().indexOf('.')+1);
+      
     });
     Navigator.pop(context);
   }
@@ -57,6 +66,7 @@ class _SearchPageState extends State<SearchPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    selectedMediaTypeString = "movie";
     controller = new ScrollController()..addListener(_scrollListener);
     mediaTypes.add(new DropdownMenuItem(
       value: MediaType.tv,
