@@ -13,8 +13,8 @@ class MovieListItem extends StatelessWidget {
 
   String getTitle()
   {
-    return mediaItemModel is MovieModel ? (mediaItemModel as MovieModel).title 
-    : (mediaItemModel as TVModel).name;
+    return mediaItemModel is MovieModel ? (mediaItemModel as MovieModel)?.title ?? ""
+    : (mediaItemModel as TVModel)?.name ?? "";
   }
 
   @override
@@ -23,7 +23,7 @@ class MovieListItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         new Text(getTitle(), style: TextStyle(fontSize: 22.1,  fontWeight: FontWeight.bold), textAlign: TextAlign.start,),
-        new Text(mediaItemModel.overview)
+        new Text(mediaItemModel?.overview ?? "")
       ],
     );
   }
