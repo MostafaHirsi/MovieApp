@@ -1,3 +1,4 @@
 class MediaModel{
-  String overview;
+  String overview = "";
+  String posterPath = "";
 }

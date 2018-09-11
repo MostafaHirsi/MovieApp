@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mymovieapp/models/mediamodel.dart';
 import 'package:mymovieapp/models/mediatype.dart';
-import 'package:mymovieapp/models/moviemodel.dart';
 import 'package:mymovieapp/services/mediaservice.dart';
-import 'package:mymovieapp/views/movielistitem.dart';
+import 'package:mymovieapp/views/medialistitem.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -57,7 +56,6 @@ class _SearchPageState extends State<SearchPage> {
       selectedMediaType, 1);      
     setState(() {
       mediaModels = mediaMods;
-      
     });
     Navigator.pop(context);
   }
@@ -86,8 +84,6 @@ class _SearchPageState extends State<SearchPage> {
           )
       ]),
     ));
-    MovieModel model = new MovieModel();
-    mediaModels.add(model);
   }
 
   void _scrollListener() async {
@@ -131,13 +127,17 @@ class _SearchPageState extends State<SearchPage> {
                 ),],
                 mainAxisAlignment: MainAxisAlignment.center,),
                 new Expanded(child: ListView.builder(
-                              itemBuilder: (BuildContext context, int index) =>
-                                  MovieListItem(mediaModels[index]), 
+                              itemBuilder: buildList, 
                               ),
                 ),
           ],
         ),
       )
     );
+  }
+
+  Widget buildList(BuildContext context, int index){
+      return mediaModels.length > 0 && index < mediaModels.length
+       ? MediaListItem(mediaModels[index]) : null;
   }
 }
