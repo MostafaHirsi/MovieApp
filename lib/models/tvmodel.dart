@@ -7,6 +7,8 @@ class TVModel extends MediaModel{
   TVModel.fromJson(Map json){
     this.name = json["name"];
     this.overview = json ["overview"];
-    this.posterPath = "https://image.tmdb.org/t/p/w$Settings.searchImageWidth" + json["poster_path"];
+    getImages(json);
   }
+
+  
 }
