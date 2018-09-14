@@ -113,17 +113,17 @@ class _SearchPageState extends State<SearchPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
                 new Row(children: <Widget>[
-                  new Container(child:  TextField(
-                    decoration: new InputDecoration(labelText: "Enter a $selectedMediaTypeString name"),
+                  new Expanded(child:  TextField(
+                    decoration: new InputDecoration(labelText: "Enter a $selectedMediaTypeString name", contentPadding: EdgeInsets.all(0.0)),
                     keyboardType: TextInputType.text,
                     onSubmitted: OnSubmitted,
-                  ), width: 300.0,),
-                new Padding(child: new DropdownButton(
+                  ),), 
+                new Padding(child: new DropdownButton( 
                   value: selectedMediaType, 
                   items: mediaTypes,
                   onChanged: OnChanged,
                   ),
-                  padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+                  padding: EdgeInsets.fromLTRB(0.0, 3.0, 0.0, 0.0),
                 ),],
                 mainAxisAlignment: MainAxisAlignment.center,),
                 new Expanded(child: ListView.builder(

@@ -16,6 +16,15 @@ class MediaModel{
 
     bool hasAverage = json.containsKey("voter_average");
 
+    for (var item in json.keys) {
+      if(item.toString() == "vote_average")
+      {
+        double parsedRating = json[item] + 0.0;
+        
+
+        this.rating = parsedRating > 0.0 ? parsedRating/2 : 0.0 ;
+      }
+    }
 
     if(poster_path != null)
     {

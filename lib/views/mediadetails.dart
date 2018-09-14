@@ -54,41 +54,31 @@ class _MediaDetailsPageState extends State<MediaDetailPage>  {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                    new Stack(children: <Widget>[
-                      new Container(
-                        child: new CachedNetworkImage(
-                              imageUrl: mediaItemModel.backDropPath,
-                              placeholder: new CircularProgressIndicator(),
-                              errorWidget: new Icon(Icons.movie, color: Colors.black,),
-                              fit: BoxFit.fitWidth,
-                              width: 1000.0,
-                              height: 230.0,
-                            ),
-                        ),
-                      new Padding(
-                        padding: EdgeInsets.fromLTRB(0.0, 13.0, 0.0, 0.0),
-                        child: new OutlineButton(
-                          child: new Icon(Icons.arrow_back, color: Colors.white,),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          shape: new CircleBorder(),
-                          color: Colors.grey.shade900,
-                        )
-                      ),
-                      new Baseline(
+                    new Stack(
+                      children: <Widget>[
+                      Center(
                         child: new Container(
-                                  decoration: new BoxDecoration(gradient: new LinearGradient(colors: [Colors.black, Colors.transparent,],stops: [0.0, 1.0],
-                                   begin: FractionalOffset.bottomCenter,
-                                    end: FractionalOffset.topCenter, tileMode: TileMode.repeated)),
-                                  padding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 10.0),
+                          child: new CachedNetworkImage(
+                                imageUrl: mediaItemModel.backDropPath,
+                                placeholder: Padding(
+                                  padding: const EdgeInsets.all(60.0),
+                                  child: Center(child: new CircularProgressIndicator()),
+                                ),
+                                errorWidget: new Icon(Icons.movie, color: Colors.black,),
+                                fit: BoxFit.fitWidth,
+                              ),
+                          ),
+                      ),
+                      new Container(
+                                  decoration: new BoxDecoration(gradient: new LinearGradient(colors: [Colors.black54, Colors.black54, Colors.black54, Colors.transparent,],
+                                    stops: [0.3, 0.3, 0.3 , 2.5],
+                                   begin: FractionalOffset.topCenter,
+                                    end: FractionalOffset.bottomCenter, tileMode: TileMode.repeated)),
+                                  padding: EdgeInsets.fromLTRB(5.0, 12.0, 10.0, 10.0),
                                   width: MediaQuery.of(context).size.width,
                                   child: new Text(getTitle(), style: TextStyle(fontSize: 22.1, color: Colors.white,  fontWeight: FontWeight.bold, ),
-                                        maxLines: 2, overflow: TextOverflow.ellipsis, softWrap: true, textAlign: TextAlign.start,),
+                                        maxLines: 2, overflow: TextOverflow.ellipsis, softWrap: true, textAlign: TextAlign.end,)
                                 ),
-                        baseline: 219.0,
-                        baselineType: TextBaseline.alphabetic,
-                      ),
                       new Baseline(
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(250.0, 0.0, 0.0, 0.0),
@@ -98,7 +88,8 @@ class _MediaDetailsPageState extends State<MediaDetailPage>  {
                           ),
                           baseline: 223.0,
                           baselineType: TextBaseline.alphabetic,
-                      )
+                      ),
+                      new BackButton(color: Colors.white,),
                     ],),
 
                   new Card(child: new Column(children: <Widget>[
