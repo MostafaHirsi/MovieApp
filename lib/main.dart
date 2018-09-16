@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mymovieapp/views/search.dart';
 
 void main() => runApp(new MyApp());
@@ -7,6 +8,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+      [
+        DeviceOrientation.portraitUp
+      ]
+    );  
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
@@ -18,7 +24,35 @@ class MyApp extends StatelessWidget {
         // "hot reload" (press "r" in the console where you ran "flutter run",
         // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
         // counter didn't reset back to zero; the application is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
+        backgroundColor: Colors.black,
+        cardColor: Colors.grey.shade800,
+        textTheme: Theme.of(context).textTheme.apply(
+          bodyColor: Colors.white,
+          displayColor: Colors.white,
+          decorationColor: Colors.white,
+        ),
+        accentIconTheme: IconThemeData(color: Colors.black),
+        accentTextTheme: Theme.of(context).textTheme.apply(
+          bodyColor: Colors.white,
+          displayColor: Colors.white,
+          decorationColor: Colors.white,
+        ),
+        canvasColor: Colors.grey.shade800,
+        buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.accent),
+        iconTheme: IconThemeData(color: Colors.black),
+        scaffoldBackgroundColor: Colors.grey.shade900,
+        primaryIconTheme: IconThemeData(color: Colors.black),
+        inputDecorationTheme: InputDecorationTheme( 
+                      helperStyle: TextStyle(color: Colors.white),
+                       hintStyle: TextStyle(color: Colors.white),
+                      contentPadding: EdgeInsets.all(0.0), 
+                      border: new UnderlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white, 
+                                      width: 1.0, style: BorderStyle.solid ),
+        ),
+          fillColor: Colors.white, ),
+        fontFamily: "MarkPro"
       ),
       home: new SearchPage(),
     );

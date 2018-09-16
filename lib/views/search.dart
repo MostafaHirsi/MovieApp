@@ -19,6 +19,7 @@ class _SearchPageState extends State<SearchPage> {
   String selectedMediaTypeString = "";
   String currentSearchTerms = "";
   int pageNo = 1;
+  
 
   void OnChanged(MediaType selectedValue)
   {
@@ -69,8 +70,8 @@ class _SearchPageState extends State<SearchPage> {
     mediaTypes.add(new DropdownMenuItem(
       value: MediaType.tv,
       child: new Row(children: <Widget>[
-          new Icon(Icons.tv),
-          new Padding(child: new Text('TV'),
+          new Icon(Icons.tv, color: Colors.white,),
+          new Padding(child: new Text('TV',),
             padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
           )
       ]),
@@ -78,10 +79,11 @@ class _SearchPageState extends State<SearchPage> {
     mediaTypes.add(new DropdownMenuItem(
       value: MediaType.movie, 
       child: new Row(children: <Widget>[
-          new Icon(Icons.movie),
+          new Icon(Icons.movie, color: Colors.white),
           new Padding(child: new Text('Movie'),
             padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-          )
+          ),
+      
       ]),
     ));
   }
@@ -100,6 +102,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return new Scaffold(
       appBar: new AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -114,11 +117,17 @@ class _SearchPageState extends State<SearchPage> {
           children: <Widget>[
                 new Row(children: <Widget>[
                   new Expanded(child:  TextField(
-                    decoration: new InputDecoration(labelText: "Enter a $selectedMediaTypeString name", contentPadding: EdgeInsets.all(0.0)),
+                    decoration: new InputDecoration(
+                    labelStyle: theme.textTheme.caption.copyWith(color: Colors.grey.shade700,),
+                    border: UnderlineInputBorder(borderSide:
+                           BorderSide(color: Theme.of(context).primaryColor)),
+                    labelText: "Enter a $selectedMediaTypeString name",
+                  ),
+
                     keyboardType: TextInputType.text,
                     onSubmitted: OnSubmitted,
                   ),), 
-                new Padding(child: new DropdownButton( 
+                new Padding(child: new DropdownButton(
                   value: selectedMediaType, 
                   items: mediaTypes,
                   onChanged: OnChanged,

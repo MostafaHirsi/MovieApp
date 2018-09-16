@@ -66,19 +66,23 @@ class _MediaDetailsPageState extends State<MediaDetailPage>  {
                                 ),
                                 errorWidget: new Icon(Icons.movie, color: Colors.black,),
                                 fit: BoxFit.fitWidth,
+                                height: 230.0,
                               ),
                           ),
                       ),
                       new Container(
-                                  decoration: new BoxDecoration(gradient: new LinearGradient(colors: [Colors.black54, Colors.black54, Colors.black54, Colors.transparent,],
-                                    stops: [0.3, 0.3, 0.3 , 2.5],
-                                   begin: FractionalOffset.topCenter,
-                                    end: FractionalOffset.bottomCenter, tileMode: TileMode.repeated)),
-                                  padding: EdgeInsets.fromLTRB(5.0, 12.0, 10.0, 10.0),
+                                  decoration: new BoxDecoration(gradient: new LinearGradient(
+                                    colors: [Colors.black54, Colors.black54, Colors.black54, Colors.transparent,],
+                                    stops: [0.0, 0.00, 0.0 , 5.0],
+                                   begin: FractionalOffset.bottomCenter,
+                                    end: FractionalOffset.topCenter, tileMode: TileMode.repeated)),
+                                  padding: EdgeInsets.fromLTRB(5.0, 12.0, 10.0, 6.0),
                                   width: MediaQuery.of(context).size.width,
                                   child: new Text(getTitle(), style: TextStyle(fontSize: 22.1, color: Colors.white,  fontWeight: FontWeight.bold, ),
-                                        maxLines: 2, overflow: TextOverflow.ellipsis, softWrap: true, textAlign: TextAlign.end,)
-                                ),
+                                        maxLines: 2, overflow: TextOverflow.ellipsis, softWrap: true, textAlign: TextAlign.end,),
+                                  alignment: Alignment(-0.9, 1.0),
+                                  constraints: BoxConstraints.expand(height: 230.0)
+                                ),                                
                       new Baseline(
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(250.0, 0.0, 0.0, 0.0),
@@ -91,7 +95,7 @@ class _MediaDetailsPageState extends State<MediaDetailPage>  {
                       ),
                       new BackButton(color: Colors.white,),
                     ],),
-
+                  
                   new Card(child: new Column(children: <Widget>[
                           new Padding(
                             child: new Text("Overview",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0), 
